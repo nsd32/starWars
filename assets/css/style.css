@@ -9,3 +9,15 @@ body {
 	background-image: url('../images/starwars.jpg');
 	color: lightgray;
 }
+
+.thumbnail {
+	margin: 0;
+}
+
+button {
+	padding: 0;
+}
+
+/*#defender {
+	text-align: center;
+}*/

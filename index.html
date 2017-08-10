@@ -10,6 +10,13 @@
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+  <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  
+
   </head>
   <body>
   	<div class="container">
@@ -28,43 +35,51 @@
       <div class="row">
 
         <div class="col-md-2 col-xs-6">
-		  <div class="thumbnail">
+        <button id="obi" class="character" value="obi">
+		      <div class="thumbnail">
             <img src="assets/images/obi-wan-kenobi.jpeg" alt="...">
             <div class="caption">
               <h5>Obi-Wan Kenobi</h5>
               <p>120</p>
             </div>
           </div>
+        </button>
         </div>
 
         <div class="col-md-2 col-xs-6">
-		  <div class="thumbnail">
+        <button id="luke" class="character" value="luke">
+		      <div class="thumbnail">
             <img src="assets/images/luke-skywalker.jpeg" alt="...">
             <div class="caption">
               <h5>Luke Skywalker</h5>
               <p>100</p>
             </div>
           </div>
+        </button>
         </div>
 
         <div class="col-md-2 col-xs-6">
-		  <div class="thumbnail">
+        <button id="sidious" class="character" value="sidious">
+		      <div class="thumbnail">
             <img src="assets/images/darth-sidious.jpeg" alt="...">
             <div class="caption">
               <h5>Darth Sidious</h5>
               <p>150</p>
             </div>
           </div>
+        </button>
         </div>
 
         <div class="col-md-2 col-xs-6">
-		  <div class="thumbnail">
+        <button id="maul" class="character" value="maul">
+		      <div class="thumbnail">
             <img src="assets/images/darth-maul.jpeg" alt="...">
             <div class="caption">
               <h5>Darth Maul</h5>
               <p>180</p>
             </div>
           </div>
+        </button>
         </div>
 
       </div> <!-- row -->
@@ -77,36 +92,40 @@
 	  	  <h3>Fight Section</h3>
 	  	</div>
 	  	<div class="col-md-3 col-xs-4">
-	  	  <h3>Defender</h3>
+	  	  <h3>Defender</h3>  
 	  	</div>
 	  </div>
 
 	  <div class="row">
         
 		<div class="col-md-2 col-xs-4">
+    <button>
 		  <div class="thumbnail">
-            <img src="http://www.meadowbrookbuilding7.com/wordpress/wp-content/uploads/2014/05/Blank-Thumbnail.png" alt="...">
+            <img src="http://www.meadowbrookbuilding7.com/wordpress/wp-content/uploads/2014/05/Blank-Thumbnail.png" id="char-selected" alt="...">
             <div class="caption">
-              <h5></h5>
-              <p>...</p>
+              <h5 id="userName"></h5>
+              <p id="health">...</p>
             </div>
           </div>
+        </button>
         </div>
 
         <div class="col-md-4 col-xs-4">
           <div id="attack-button">
-            <button class="btn btn-danger">Attack</button>
+            <button class="btn btn-danger btn-lg">Attack</button>
           </div>
         </div>
 
         <div class="col-md-2 col-xs-4">
-		  <div class="thumbnail">
-            <img src="http://www.meadowbrookbuilding7.com/wordpress/wp-content/uploads/2014/05/Blank-Thumbnail.png" alt="...">
+        <button>
+		      <div class="thumbnail">
+            <img src="http://www.meadowbrookbuilding7.com/wordpress/wp-content/uploads/2014/05/Blank-Thumbnail.png" id="defender" alt="...">
             <div class="caption">
-              <h5></h5>
-              <p>...</p>
+              <h5 id="defName"></h5>
+              <p id="defHealth">...</p>
             </div>
           </div>
+        </button>
         </div>
 
       </div> <!-- row --> 
@@ -117,5 +136,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
   </body>
 </html>
