@@ -22,6 +22,7 @@ function gameOver() {
     count = 0;
     value = "";
     defenderImage = false;
+    battleCount = 0;
     $('#char-selected').attr("src", emptyImage);
     $('#defender').attr("src", emptyImage);
     $('#userName').html("");
@@ -34,6 +35,7 @@ function gameOver() {
   	count = 0;
     value = "";
     defenderImage = false;
+    battleCount = 0;
     $('#char-selected').attr("src", emptyImage);
     $('#defender').attr("src", emptyImage);
     $('#userName').html("");
