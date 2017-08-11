@@ -1,6 +1,8 @@
 var count = 0;
 var value;
 var emptyImage = "http://www.meadowbrookbuilding7.com/wordpress/wp-content/uploads/2014/05/Blank-Thumbnail.png"
+var defenderImage = false;
+battleCount = 0;
 
 function battleWon() {
   if (defenderCharacter.healthPoints < 1) {
@@ -9,6 +11,36 @@ function battleWon() {
   	$('#defHealth').html(defenderCharacter.healthPoints);
   	defenderCharacter.name = " "
   	$('#defName').html(defenderCharacter.name);
+  	$('#fight-button').prop('disabled', true);
+    $('.character').prop('disabled', false);
+    battleCount++;
+  }
+}
+
+function gameOver() {
+  if (userCharacter.healthPoints < 1) {
+    count = 0;
+    value = "";
+    defenderImage = false;
+    $('#char-selected').attr("src", emptyImage);
+    $('#defender').attr("src", emptyImage);
+    $('#userName').html("");
+    $('#health').html("0");
+
+    $('.character').show();
+    alert('You Lose!!')
+    
+  } else if (battleCount >= 3) {
+  	count = 0;
+    value = "";
+    defenderImage = false;
+    $('#char-selected').attr("src", emptyImage);
+    $('#defender').attr("src", emptyImage);
+    $('#userName').html("");
+    $('#health').html("0");
+
+    $('.character').show();
+    alert('You Win!')
   }
 }
 
@@ -28,7 +60,7 @@ var userCharacter = {
   setUserProps: function(value) {
   	switch (value) {
   	  case "obi":
-  	  	userCharacter.name = 'Obi-Wan Kenobi'	
+  	  	userCharacter.name = 'Obi-Wan Kenobi';	
   	  	userCharacter.healthPoints = 120;
   	  	userCharacter.attackPoints = 12;
   	  	userCharacter.counterPoints = 12;
@@ -39,7 +71,7 @@ var userCharacter = {
   	  	break;
 
   	  case "luke":
-  	  	userCharacter.name = 'Luke Skywalker'
+  	  	userCharacter.name = 'Luke Skywalker';
   	  	userCharacter.healthPoints = 100;
   	  	userCharacter.attackPoints = 10;
   	  	userCharacter.counterPoints = 10;
@@ -50,7 +82,7 @@ var userCharacter = {
   	  	break;
 
   	  case "sidious":
-  	  	userCharacter.name = 'Darth-Sidious'
+  	  	userCharacter.name = 'Darth-Sidious';
   	  	userCharacter.healthPoints = 150;
   	  	userCharacter.attackPoints = 15;
   	  	userCharacter.counterPoints = 15;
@@ -61,7 +93,7 @@ var userCharacter = {
   	  	break;
 
   	  case "maul":
-  	  	userCharacter.name = 'Darth-Maul'
+  	  	userCharacter.name = 'Darth-Maul';
   	  	userCharacter.healthPoints = 180;
   	  	userCharacter.attackPoints = 18;
   	  	userCharacter.counterPoints = 18;
@@ -141,7 +173,6 @@ var defenderCharacter = {
   }
 }
 
-
 $('.character').click(function () {
   if(count === 0) {
     $(this).hide();
@@ -156,7 +187,9 @@ $('.character').click(function () {
     $('#defender').attr("src", image2);
     value = $(this).val();
     console.log(defenderCharacter.name);
-    defenderCharacter.setDefenderProps(value)
+    defenderCharacter.setDefenderProps(value);
+    $('#fight-button').prop('disabled', false);
+    $('.character').prop('disabled', true);
   }
   count++ 
 });
@@ -166,6 +199,7 @@ $('#attack-button').click(function () {
 	userCharacter.decreaseUserHealth();
 	userCharacter.attackPoints += userCharacter.multiplier
 	battleWon();
+	gameOver();
 });
 
 
