@@ -29,7 +29,10 @@ function gameOver() {
     $('#health').html("0");
 
     $('.character').show();
-    alert('You Lose!!')
+    alert('You Lose!!');
+    $('.character').prop('disabled', false);
+    $('#fight-button').prop('disabled', true);
+    changeCharHeading();
     
   } else if (battleCount >= 3) {
   	count = 0;
@@ -42,21 +45,24 @@ function gameOver() {
     $('#health').html("0");
 
     $('.character').show();
-    alert('You Win!')
+    alert('You Win!');
+    changeCharHeading();
   }
 }
 
-// function disableButtons() {
-//   if ($('#defender').attr("src") === emptyImage) {
-//   	$('attack-button').disable();
-//   }
-// }
+function changeCharHeading() {
+  if (count > 0) {
+    $('#charHeading').html('Choose Your Opponent');
+  } else {
+  	$('#charHeading').html('Choose Your Character');
+  }
+}
 
 var userCharacter = {
   name: "",
   healthPoints: 0,
   attackPoints: 0,
-  counterPoints: 0,
+  // counterPoints: 0,
   multiplier: 0,
 
   setUserProps: function(value) {
@@ -64,9 +70,9 @@ var userCharacter = {
   	  case "obi":
   	  	userCharacter.name = 'Obi-Wan Kenobi';	
   	  	userCharacter.healthPoints = 120;
-  	  	userCharacter.attackPoints = 12;
-  	  	userCharacter.counterPoints = 12;
-  	  	userCharacter.multiplier = 12;
+  	  	userCharacter.attackPoints = 8;
+  	  	// userCharacter.counterPoints = 10;
+  	  	userCharacter.multiplier = 8;
 
   	  	$('#userName').html(userCharacter.name);
   	  	$('#health').html(userCharacter.healthPoints);
@@ -75,9 +81,9 @@ var userCharacter = {
   	  case "luke":
   	  	userCharacter.name = 'Luke Skywalker';
   	  	userCharacter.healthPoints = 100;
-  	  	userCharacter.attackPoints = 10;
-  	  	userCharacter.counterPoints = 10;
-  	  	userCharacter.multiplier = 10;
+  	  	userCharacter.attackPoints = 14;
+  	  	// userCharacter.counterPoints = 8;
+  	  	userCharacter.multiplier = 14;
 
   	  	$('#userName').html(userCharacter.name);
   	  	$('#health').html(userCharacter.healthPoints);
@@ -86,9 +92,9 @@ var userCharacter = {
   	  case "sidious":
   	  	userCharacter.name = 'Darth-Sidious';
   	  	userCharacter.healthPoints = 150;
-  	  	userCharacter.attackPoints = 15;
-  	  	userCharacter.counterPoints = 15;
-  	  	userCharacter.multiplier = 15;
+  	  	userCharacter.attackPoints = 5;
+  	  	// userCharacter.counterPoints = 12;
+  	  	userCharacter.multiplier = 5;
 
   	  	$('#userName').html(userCharacter.name);
   	  	$('#health').html(userCharacter.healthPoints);
@@ -97,9 +103,9 @@ var userCharacter = {
   	  case "maul":
   	  	userCharacter.name = 'Darth-Maul';
   	  	userCharacter.healthPoints = 180;
-  	  	userCharacter.attackPoints = 18;
-  	  	userCharacter.counterPoints = 18;
-  	  	userCharacter.multiplier = 18;
+  	  	userCharacter.attackPoints = 3;
+  	  	// userCharacter.counterPoints = 14;
+  	  	userCharacter.multiplier = 3;
 
   	  	$('#userName').html(userCharacter.name);
   	  	$('#health').html(userCharacter.healthPoints);
@@ -117,18 +123,18 @@ var userCharacter = {
 var defenderCharacter = {
   name: "",
   healthPoints: 0,
-  attackPoints: 0,
+  // attackPoints: 0,
   counterPoints: 0,
-  multiplier: 0,
+  // multiplier: 0,
 
   setDefenderProps: function(value) {
   	switch (value) {
   	  case "obi":
   	  	defenderCharacter.name = 'Obi-Wan Kenobi';
   	  	defenderCharacter.healthPoints = 120;
-  	  	defenderCharacter.attackPoints = 12;
-  	  	defenderCharacter.counterPoints = 12;
-  	  	defenderCharacter.multiplier = 12;
+  	  	// defenderCharacter.attackPoints = 12;
+  	  	defenderCharacter.counterPoints = 10;
+  	  	// defenderCharacter.multiplier = 12;
 
   	  	$('#defName').html(defenderCharacter.name);
   	  	$('#defHealth').html(defenderCharacter.healthPoints);
@@ -137,9 +143,9 @@ var defenderCharacter = {
   	  case "luke":
   	  	defenderCharacter.name = 'Luke Skywalker';  	  	
   	  	defenderCharacter.healthPoints = 100;
-  	  	defenderCharacter.attackPoints = 10;
-  	  	defenderCharacter.counterPoints = 10;
-  	  	defenderCharacter.multiplier = 10;
+  	  	// defenderCharacter.attackPoints = 10;
+  	  	defenderCharacter.counterPoints = 8;
+  	  	// defenderCharacter.multiplier = 10;
 
   	  	$('#defName').html(defenderCharacter.name);
   	  	$('#defHealth').html(defenderCharacter.healthPoints);
@@ -148,9 +154,9 @@ var defenderCharacter = {
   	  case "sidious":
   	  	defenderCharacter.name = 'Darth-Sidious';	  	
   	  	defenderCharacter.healthPoints = 150;
-  	  	defenderCharacter.attackPoints = 15;
-  	  	defenderCharacter.counterPoints = 15;
-  	  	defenderCharacter.multiplier = 15;
+  	  	// defenderCharacter.attackPoints = 15;
+  	  	defenderCharacter.counterPoints = 12;
+  	  	// defenderCharacter.multiplier = 15;
 
   	  	$('#defName').html(defenderCharacter.name);
   	  	$('#defHealth').html(defenderCharacter.healthPoints);
@@ -159,9 +165,9 @@ var defenderCharacter = {
   	  case "maul":
   	  	defenderCharacter.name = 'Darth-Maul';
   	  	defenderCharacter.healthPoints = 180;
-  	  	defenderCharacter.attackPoints = 18;
-  	  	defenderCharacter.counterPoints = 18;
-  	  	defenderCharacter.multiplier = 18;
+  	  	// defenderCharacter.attackPoints = 18;
+  	  	defenderCharacter.counterPoints = 14;
+  	  	// defenderCharacter.multiplier = 18;
 
   	  	$('#defName').html(defenderCharacter.name);
   	  	$('#defHealth').html(defenderCharacter.healthPoints);
@@ -176,6 +182,7 @@ var defenderCharacter = {
 }
 
 $('.character').click(function () {
+
   if(count === 0) {
     $(this).hide();
     var image1 = $(this).find("img").attr("src");
@@ -191,9 +198,10 @@ $('.character').click(function () {
     console.log(defenderCharacter.name);
     defenderCharacter.setDefenderProps(value);
     $('#fight-button').prop('disabled', false);
-    $('.character').prop('disabled', true);
+    $('.character').prop('disabled', true); 
   }
-  count++ 
+  count++
+  changeCharHeading();
 });
 
 $('#attack-button').click(function () {
